@@ -11,8 +11,8 @@ app.use(express.json());
 const data = '[{"email":"zia2450@gmail.com","data":{"group_id":"5542", "ipv4":"116.71.112.180"}}]';
 const signature = getSignature('0c5f435ccc0ed09b34f98921cff486b7', data)
 
-function getSignature(key, data) {
-  const res = crypto.createHmac('sha1', key).update(data).digest('hex');
+function getSignature(key, data_input) {
+  const res = crypto.createHmac('sha1', key).update(data_input).digest('hex');
   console.log(res);
   return res;
 }
